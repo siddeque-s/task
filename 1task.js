@@ -1,11 +1,11 @@
-let a = [10, 8, 3, 5, 6, 7];
-let len = a.length;
-sum = 0;
+const avg = (a) => {
+  sum = 0;
 
-for (let i = 0; i < len; i++) {
-  sum = sum + a[i];
-}
-console.log("Average :", sum / len);
+  for (let i = 0; i < len; i++) {
+    sum = sum + a[i];
+  }
+  console.log("Average :", sum / len);
+};
 
 //  for(let i=0;i<len;i++){
 //     for(j=i+1;j<len;j++){
@@ -17,12 +17,23 @@ console.log("Average :", sum / len);
 //         }
 //     }
 //  }
-lar = a[0];
-slar = null;
-for (i = 0; i < len; i++) {
-  if (a[i] > a[i + 1]) {
-    slar = lar;
-    lar = a[i + 1];
+
+const secLar = (a) => {
+  lar = a[0];
+  slar = null;
+  for (i = 0; i < len; i++) {
+    if (a[i] > lar) {
+      slar = lar;
+      lar = a[i];
+    } else if (a[i] > slar && a[i] < lar) {
+      slar = a[i];
+    }
   }
-}
-console.log("second largest :", slar);
+  console.log("second largest :", slar);
+};
+
+let a = [10, 8, 3, 5, 6, 7];
+let len = a.length;
+
+avg(a);
+secLar(a);
